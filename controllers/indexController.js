@@ -1,5 +1,8 @@
-const displayHomeGet = (req, res) => {
-  res.render("index");
+const db = require("../db/queries");
+
+const displayHomeGet = async (req, res) => {
+  const records = await db.getAllRecords();
+  res.render("index", { records: records });
 };
 
 const addNewArtistGet = (req, res) => {
