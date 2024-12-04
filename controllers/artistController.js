@@ -1,12 +1,27 @@
 const displayArtistRecordsGet = (req, res) => {
-  res.send("This will show all of the records owned by a given artist");
+  res.render("category");
+};
+
+const displayNewRecordFormGet = (req, res) => {
+  res.render("newRecord");
+};
+
+const updateRecordGet = (req, res) => {
+  res.render("updateRecord");
+};
+
+const updateArtistGet = (req, res) => {
+  res.render("updateCategory");
 };
 
 const displayRecordDetailsGet = (req, res) => {
-  res.send("This page would display the details for an artist's record.");
+  res.render("details");
 };
 
 module.exports = {
   displayArtistRecordsGet,
+  displayNewRecordFormGet,
+  updateRecordGet,
+  updateArtistGet,
   displayRecordDetailsGet,
 };
