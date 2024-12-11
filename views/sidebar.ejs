@@ -1,9 +1,10 @@
 <div>
   <nav>
     <ul>
-      <li>Category 1</li>
-      <li>Category 2</li>
-      <li>Category 3</li>
+      <li><a href="/">Home</a></li>
+      <% if (locals.records) { %> <% locals.records.forEach(record => { %>
+      <li><a href="/artist"><%= record.artist %></a></li>
+      <% }) %> <% } %>
     </ul>
   </nav>
 </div>
