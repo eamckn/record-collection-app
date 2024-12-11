@@ -18,6 +18,18 @@
         <li><%= record.genre %></li>
         <% }) %>
       </ul>
+      <button id="new_category_button">Add category</button>
+      <%- include('newCategoryModal') %>
     </div>
+    <script>
+      const newCategoryModal = document.querySelector("#new_category_modal");
+      const modalButton = newCategoryModal.querySelector("button");
+      const newCategoryButton = document.querySelector("#new_category_button");
+
+      newCategoryButton.addEventListener("click", () => {
+        newCategoryModal.showModal();
+      });
+      modalButton.addEventListener("click", () => newCategoryModal.close());
+    </script>
   </body>
 </html>
