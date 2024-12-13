@@ -8,7 +8,18 @@
   <body>
     <div>
       <%- include('header') %> <%- include('sidebar') %>
-      <h1>All records for a given artist</h1>
+      <h1>All records for <%= locals.artist %></h1>
+      <% if (locals.records) { %>
+      <ul>
+        <% locals.records.map(record => { %>
+        <li><%= record.title %></li>
+        <li><%= record.artist %></li>
+        <li><%= record.yr %></li>
+        <li><%= record.label %></li>
+        <li><%= record.genre %></li>
+        <% }) %>
+      </ul>
+      <% } %>
     </div>
   </body>
 </html>

@@ -6,6 +6,14 @@ const getAllRecords = async () => {
   return rows;
 };
 
+const getArtistRecords = async (artist) => {
+  const { rows } = await pool.query("SELECT * FROM records WHERE artist = $1", [
+    artist,
+  ]);
+  return rows;
+};
+
 module.exports = {
   getAllRecords,
+  getArtistRecords,
 };

@@ -1,5 +1,11 @@
-const displayArtistRecordsGet = (req, res) => {
-  res.render("category");
+const db = require("../db/queries");
+
+const displayArtistRecordsGet = async (req, res) => {
+  const { artist } = req.params;
+  //console.log("clicked artist is " + artist);
+  const records = await db.getArtistRecords(artist);
+  //records.forEach((record) => console.log(record));
+  res.render("category", { artist: artist, records: records });
 };
 
 const displayNewRecordFormGet = (req, res) => {

@@ -11,7 +11,7 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/", indexRouter);
-app.use("/artist", artistRouter);
+app.use("/artists", artistRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is currently listening on port ${PORT}.`);
