@@ -3,7 +3,7 @@
     <ul>
       <li><a href="/">Home</a></li>
       <% if (locals.records) { %> <% locals.records.forEach(record => { %>
-      <li><a href="/artist"><%= record.artist %></a></li>
+      <li><a href="/artists/<%= record.artist %>"><%= record.artist %></a></li>
       <% }) %> <% } %>
     </ul>
   </nav>
