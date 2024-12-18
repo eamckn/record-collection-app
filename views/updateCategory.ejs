@@ -7,10 +7,15 @@
   </head>
   <body>
     <%- include('header') %> <%- include('sidebar') %>
-    <h1>Update artist name</h1>
+    <h1>Update artist name for <%= artist %></h1>
     <form action="/update" method="post">
       <label for="update_artist">Artist name: </label>
-      <input type="text" name="update_artist" id="update_artist" />
+      <input
+        type="text"
+        name="update_artist"
+        id="update_artist"
+        value="<%= artist %>"
+      />
       <button type="submit">Update</button>
     </form>
   </body>

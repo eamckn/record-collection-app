@@ -9,7 +9,8 @@ const displayArtistRecordsGet = async (req, res) => {
 };
 
 const displayNewRecordFormGet = (req, res) => {
-  res.render("newRecord");
+  const { artist } = req.params;
+  res.render("newRecord", { artist: artist });
 };
 
 const updateRecordGet = async (req, res) => {
@@ -20,7 +21,8 @@ const updateRecordGet = async (req, res) => {
 };
 
 const updateArtistGet = (req, res) => {
-  res.render("updateCategory");
+  const { artist } = req.params;
+  res.render("updateCategory", { artist: artist });
 };
 
 const displayRecordDetailsGet = async (req, res) => {

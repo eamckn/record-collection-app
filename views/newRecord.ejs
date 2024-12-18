@@ -7,7 +7,7 @@
   </head>
   <body>
     <%- include('header') %> <%- include('sidebar') %>
-    <h1>Add new record to selected artist's catalogue</h1>
+    <h1>Add new record to your collection of records by <%= artist %></h1>
     <form action="/artist" method="post">
       <label for="record_title">Record title: </label>
       <input type="text" name="record_title" id="record_title" />
