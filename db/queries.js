@@ -2,13 +2,13 @@ const pool = require("./pool");
 
 const getAllRecords = async () => {
   const { rows } = await pool.query("SELECT * FROM records");
-  console.log(rows);
+  //console.log(rows);
   return rows;
 };
 
 const getAllArtists = async () => {
   const { rows } = await pool.query("SELECT DISTINCT artist FROM records");
-  console.log(rows);
+  //console.log(rows);
   return rows;
 };
 
@@ -19,8 +19,16 @@ const getArtistRecords = async (artist) => {
   return rows;
 };
 
+const getRecordDetails = async (id) => {
+  const { rows } = await pool.query("SELECT * FROM records WHERE id = $1", [
+    id,
+  ]);
+  return rows;
+};
+
 module.exports = {
   getAllRecords,
   getAllArtists,
   getArtistRecords,
+  getRecordDetails,
 };

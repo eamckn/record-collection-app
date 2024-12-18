@@ -17,6 +17,9 @@
         <li><%= record.yr %></li>
         <li><%= record.label %></li>
         <li><%= record.genre %></li>
+        <button class="update">
+          <a href="./<%= record.artist %>/<%= record.id %>/update">Update</a>
+        </button>
         <% }) %>
       </ul>
       <% } %>

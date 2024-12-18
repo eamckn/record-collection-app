@@ -12,8 +12,11 @@ const displayNewRecordFormGet = (req, res) => {
   res.render("newRecord");
 };
 
-const updateRecordGet = (req, res) => {
-  res.render("updateRecord");
+const updateRecordGet = async (req, res) => {
+  const { id } = req.params;
+  const [record] = await db.getRecordDetails(id);
+  //console.log(record);
+  res.render("updateRecord", { record: record });
 };
 
 const updateArtistGet = (req, res) => {
