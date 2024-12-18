@@ -3,7 +3,7 @@ const artistRouter = Router();
 const artistController = require("../controllers/artistController");
 
 artistRouter.get("/:artist", artistController.displayArtistRecordsGet);
-artistRouter.get("/:artist/title", artistController.displayRecordDetailsGet);
+artistRouter.get("/:artist/:id", artistController.displayRecordDetailsGet);
 artistRouter.get("/:artist/new", artistController.displayNewRecordFormGet);
 artistRouter.get("/:artist/update", artistController.updateArtistGet);
 artistRouter.get("/:artist/:id/update", artistController.updateRecordGet);

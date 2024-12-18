@@ -23,8 +23,10 @@ const updateArtistGet = (req, res) => {
   res.render("updateCategory");
 };
 
-const displayRecordDetailsGet = (req, res) => {
-  res.render("details");
+const displayRecordDetailsGet = async (req, res) => {
+  const { id } = req.params;
+  const [record] = await db.getRecordDetails(id);
+  res.render("details", { record: record });
 };
 
 module.exports = {
