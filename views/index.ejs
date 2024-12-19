@@ -9,15 +9,15 @@
     <div>
       <%- include('header') %> <%- include('sidebar', { artists: artists }) %>
       <h1>All records view</h1>
-      <ul>
-        <% locals.records.forEach(record => { %>
+      <% locals.records.forEach(record => { %>
+      <ul class="record-card">
         <li><%= record.title %></li>
         <li><%= record.artist %></li>
         <li><%= record.yr %></li>
         <li><%= record.label %></li>
         <li><%= record.genre %></li>
-        <% }) %>
       </ul>
+      <% }) %>
       <button id="new_category_button">Add category</button>
       <%- include('newCategoryModal') %>
     </div>
