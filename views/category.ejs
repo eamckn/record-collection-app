@@ -7,7 +7,7 @@
   </head>
   <body>
     <div>
-      <%- include('header') %> <%- include('sidebar') %>
+      <%- include('header') %> <%- include('sidebar', {artists: artists}) %>
       <h1>All records for <%= locals.artist %></h1>
       <% if (locals.records) { %>
       <ul>
