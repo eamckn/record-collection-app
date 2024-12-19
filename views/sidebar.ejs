@@ -2,8 +2,8 @@
   <nav>
     <ul>
       <li><a href="/">Home</a></li>
-      <% if (locals.records) { %> <% locals.records.forEach(record => { %>
-      <li><a href="/artists/<%= record.artist %>"><%= record.artist %></a></li>
+      <% if (locals.artists) { %> <% locals.artists.forEach(artist => { %>
+      <li><a href="/artists/<%= artist.artist %>"><%= artist.artist %></a></li>
       <% }) %> <% } %>
     </ul>
   </nav>
