@@ -15,8 +15,15 @@ const addNewArtistPost = (req, res) => {
   res.redirect("/");
 };
 
+const deleteArtistPost = async (req, res) => {
+  const { artist } = req.body;
+  await db.deleteArtist(artist);
+  res.redirect("/");
+};
+
 module.exports = {
   displayHomeGet,
   //addNewArtistGet,
   addNewArtistPost,
+  deleteArtistPost,
 };

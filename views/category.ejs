@@ -9,6 +9,11 @@
     <div>
       <%- include('header') %> <%- include('sidebar', {artists: artists}) %>
       <h1>All records for <%= locals.artist %></h1>
+      <form action="/delete" method="post">
+        <button name="artist" value="<%= locals.artist %>" type="submit">
+          Delete artist
+        </button>
+      </form>
       <% if (locals.records) { %>
       <ul>
         <% locals.records.map(record => { %>

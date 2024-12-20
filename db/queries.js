@@ -36,6 +36,10 @@ const getArtistFromRecordId = async (id) => {
   return rows[0].artist;
 };
 
+const deleteArtist = async (artist) => {
+  await pool.query("DELETE FROM records WHERE artist = $1", [artist]);
+};
+
 module.exports = {
   getAllRecords,
   getAllArtists,
@@ -43,4 +47,5 @@ module.exports = {
   getRecordDetails,
   deleteRecord,
   getArtistFromRecordId,
+  deleteArtist,
 };
