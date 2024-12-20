@@ -6,9 +6,9 @@
     <title>Add new artist</title>
   </head>
   <body>
-    <%- include('header') %> <%- include('sidebar') %>
+    <%- include('header') %> <%- include('sidebar', { artists: artists }) %>
     <h1>Add new artist</h1>
-    <form action="/new" method="post">
+    <form action="/" method="post">
       <label for="new_artist">New artist name: </label>
       <input type="text" name="new_artist" id="new_artist" />
       <button type="submit">Add</button>
