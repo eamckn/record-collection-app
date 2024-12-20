@@ -20,6 +20,16 @@
         <button class="update">
           <a href="./<%= record.artist %>/<%= record.id %>/update">Update</a>
         </button>
+        <form action="/artists/<%= record.artist %>" method="post">
+          <button
+            class="delete"
+            name="id"
+            value="<%= record.id %>"
+            type="submit"
+          >
+            Delete
+          </button>
+        </form>
         <% }) %>
       </ul>
       <% } %>

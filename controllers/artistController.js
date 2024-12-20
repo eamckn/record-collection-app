@@ -2,15 +2,24 @@ const db = require("../db/queries");
 
 const displayArtistRecordsGet = async (req, res) => {
   const { artist } = req.params;
-  //console.log("clicked artist is " + artist);
   const records = await db.getArtistRecords(artist);
   const artists = await db.getAllArtists();
-  //records.forEach((record) => console.log(record));
-  res.render("category", {
-    artist: artist,
-    records: records,
-    artists: artists,
-  });
+  if (records.length !== 0) {
+    res.render("category", {
+      artist: artist,
+      records: records,
+      artists: artists,
+    });
+  } else {
+    res.redirect("/");
+  }
+};
+
+const deleteArtistRecordPost = async (req, res) => {
+  const { id } = req.body;
+  const artist = await db.getArtistFromRecordId(id);
+  await db.deleteRecord(id);
+  res.redirect(`/artists/${artist}`);
 };
 
 const displayNewRecordFormGet = async (req, res) => {
@@ -23,7 +32,6 @@ const updateRecordGet = async (req, res) => {
   const { id } = req.params;
   const [record] = await db.getRecordDetails(id);
   const artists = await db.getAllArtists();
-  //console.log(record);
   res.render("updateRecord", { record: record, artists: artists });
 };
 
@@ -42,6 +50,7 @@ const displayRecordDetailsGet = async (req, res) => {
 
 module.exports = {
   displayArtistRecordsGet,
+  deleteArtistRecordPost,
   displayNewRecordFormGet,
   updateRecordGet,
   updateArtistGet,
