@@ -9,7 +9,7 @@
     <div>
       <%- include('header') %> <%- include('sidebar', { artists: artists }) %>
       <h1>All records view</h1>
-      <% locals.records.forEach(record => { %>
+      <% if (locals.records) { %> <% locals.records.forEach(record => { %>
       <ul class="record-card">
         <li><%= record.title %></li>
         <li><%= record.artist %></li>
@@ -17,7 +17,7 @@
         <li><%= record.label %></li>
         <li><%= record.genre %></li>
       </ul>
-      <% }) %>
+      <% })} %>
       <!-- <%- include('newCategoryModal') %> -->
     </div>
     <script>

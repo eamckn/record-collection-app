@@ -4,15 +4,11 @@ const displayArtistRecordsGet = async (req, res) => {
   const { artist } = req.params;
   const records = await db.getArtistRecords(artist);
   const artists = await db.getAllArtists();
-  if (records.length !== 0) {
-    res.render("category", {
-      artist: artist,
-      records: records,
-      artists: artists,
-    });
-  } else {
-    res.redirect("/");
-  }
+  res.render("category", {
+    artist: artist,
+    records: records,
+    artists: artists,
+  });
 };
 
 const deleteArtistRecordPost = async (req, res) => {

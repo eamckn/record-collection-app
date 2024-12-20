@@ -6,7 +6,7 @@ const getAllRecords = async () => {
 };
 
 const getAllArtists = async () => {
-  const { rows } = await pool.query("SELECT DISTINCT artist FROM records");
+  const { rows } = await pool.query("SELECT name FROM artists");
   return rows;
 };
 
@@ -24,6 +24,11 @@ const getRecordDetails = async (id) => {
   return rows;
 };
 
+const addNewArtist = async (name) => {
+  //console.log(name);
+  await pool.query("INSERT INTO artists (name) VALUES ($1)", [name]);
+};
+
 const deleteRecord = async (id) => {
   await pool.query("DELETE FROM records WHERE id = $1", [id]);
 };
@@ -37,6 +42,7 @@ const getArtistFromRecordId = async (id) => {
 };
 
 const deleteArtist = async (artist) => {
+  await pool.query("DELETE FROM artists WHERE name = $1", [artist]);
   await pool.query("DELETE FROM records WHERE artist = $1", [artist]);
 };
 
@@ -45,6 +51,7 @@ module.exports = {
   getAllArtists,
   getArtistRecords,
   getRecordDetails,
+  addNewArtist,
   deleteRecord,
   getArtistFromRecordId,
   deleteArtist,

@@ -6,12 +6,15 @@ const displayHomeGet = async (req, res) => {
   res.render("index", { records: records, artists: artists });
 };
 
-// const addNewArtistGet = (req, res) => {
-//   res.render("newCategory");
-// };
+const addNewArtistGet = async (req, res) => {
+  const artists = await db.getAllArtists();
+  res.render("newCategory", { artists: artists });
+};
 
-const addNewArtistPost = (req, res) => {
-  console.log("post request sent from modal");
+const addNewArtistPost = async (req, res) => {
+  //console.log("post request sent from modal");
+  const { new_artist } = req.body;
+  await db.addNewArtist(new_artist);
   res.redirect("/");
 };
 
@@ -23,7 +26,7 @@ const deleteArtistPost = async (req, res) => {
 
 module.exports = {
   displayHomeGet,
-  //addNewArtistGet,
+  addNewArtistGet,
   addNewArtistPost,
   deleteArtistPost,
 };
