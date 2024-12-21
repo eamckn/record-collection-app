@@ -1,8 +1,9 @@
 const db = require("../db/queries");
 
 const displayArtistRecordsGet = async (req, res) => {
-  const { artist } = req.params;
-  const records = await db.getArtistRecords(artist);
+  const { artist_id } = req.params;
+  const artist = await db.getArtistById(artist_id);
+  const records = await db.getArtistRecords(artist_id);
   const artists = await db.getAllArtists();
   res.render("category", {
     artist: artist,
@@ -12,16 +13,35 @@ const displayArtistRecordsGet = async (req, res) => {
 };
 
 const deleteArtistRecordPost = async (req, res) => {
-  const { id } = req.body;
-  const artist = await db.getArtistFromRecordId(id);
-  await db.deleteRecord(id);
-  res.redirect(`/artists/${artist}`);
+  const { record_id } = req.body;
+  const artist_id = await db.getArtistIdFromRecordID(record_id);
+  await db.deleteRecord(record_id);
+  res.redirect(`/artists/${artist_id}`);
 };
 
 const displayNewRecordFormGet = async (req, res) => {
-  const { artist } = req.params;
+  const { artist_id } = req.params;
+  const artist = await db.getArtistById(artist_id);
   const artists = await db.getAllArtists();
   res.render("newRecord", { artist: artist, artists: artists });
+};
+
+const addNewRecordPost = async (req, res) => {
+  const {
+    record_title,
+    record_artist_id,
+    record_year,
+    record_genre,
+    record_label,
+  } = req.body;
+  await db.addNewRecord(
+    record_title,
+    record_artist_id,
+    record_year,
+    record_genre,
+    record_label
+  );
+  res.redirect(`/artists/${record_artist_id}`);
 };
 
 const updateRecordGet = async (req, res) => {
@@ -48,6 +68,7 @@ module.exports = {
   displayArtistRecordsGet,
   deleteArtistRecordPost,
   displayNewRecordFormGet,
+  addNewRecordPost,
   updateRecordGet,
   updateArtistGet,
   displayRecordDetailsGet,

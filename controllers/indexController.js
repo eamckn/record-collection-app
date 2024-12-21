@@ -3,6 +3,7 @@ const db = require("../db/queries");
 const displayHomeGet = async (req, res) => {
   const records = await db.getAllRecords();
   const artists = await db.getAllArtists();
+  //console.log(artists);
   res.render("index", { records: records, artists: artists });
 };
 
@@ -19,8 +20,8 @@ const addNewArtistPost = async (req, res) => {
 };
 
 const deleteArtistPost = async (req, res) => {
-  const { artist } = req.body;
-  await db.deleteArtist(artist);
+  const { artist_id } = req.body;
+  await db.deleteArtist(artist_id);
   res.redirect("/");
 };
 

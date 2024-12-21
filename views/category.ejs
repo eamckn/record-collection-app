@@ -8,27 +8,33 @@
   <body>
     <div>
       <%- include('header') %> <%- include('sidebar', {artists: artists}) %>
-      <h1>All records for <%= locals.artist %></h1>
+      <h1>All records for <%= locals.artist.name %></h1>
       <form action="/delete" method="post">
-        <button name="artist" value="<%= locals.artist %>" type="submit">
+        <button
+          name="artist_id"
+          value="<%= locals.artist.artist_id %>"
+          type="submit"
+        >
           Delete artist
         </button>
       </form>
+      <a href="/artists/<%= locals.artist.artist_id %>/new"
+        ><button>Add record</button></a
+      >
       <% if (locals.records) { %>
       <ul>
         <% locals.records.map(record => { %>
         <li><%= record.title %></li>
-        <li><%= record.artist %></li>
         <li><%= record.yr %></li>
         <li><%= record.label %></li>
         <li><%= record.genre %></li>
         <button class="update">
           <a href="./<%= record.artist %>/<%= record.id %>/update">Update</a>
         </button>
-        <form action="/artists/<%= record.artist %>" method="post">
+        <form action="/artists/<%= locals.artist.artist_id %>" method="post">
           <button
             class="delete"
-            name="id"
+            name="record_id"
             value="<%= record.id %>"
             type="submit"
           >

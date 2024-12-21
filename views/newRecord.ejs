@@ -6,9 +6,9 @@
     <title>New record</title>
   </head>
   <body>
-    <%- include('header') %> <%- include('sidebar') %>
-    <h1>Add new record to your collection of records by <%= artist %></h1>
-    <form action="/artist" method="post">
+    <%- include('header') %> <%- include('sidebar', { artists: artists }) %>
+    <h1>Add new record to your collection of records by <%= artist.name %></h1>
+    <form action="/artists/<%= locals.artist.artist_id %>/new" method="post">
       <label for="record_title">Record title: </label>
       <input type="text" name="record_title" id="record_title" />
       <label for="record_year">Release year: </label>
@@ -17,7 +17,13 @@
       <input type="text" name="record_label" id="record_label" />
       <label for="record_genre">Genre: </label>
       <input type="text" name="record_genre" id="record_genre" />
-      <button type="submit"></button>
+      <button
+        type="submit"
+        name="record_artist_id"
+        value="<%= locals.artist.artist_id %>"
+      >
+        Add
+      </button>
     </form>
   </body>
 </html>
