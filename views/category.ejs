@@ -29,7 +29,10 @@
         <li><%= record.label %></li>
         <li><%= record.genre %></li>
         <button class="update">
-          <a href="./<%= record.artist %>/<%= record.id %>/update">Update</a>
+          <a
+            href="/artists/<%= locals.artist.artist_id %>/<%= record.id %>/update"
+            >Update</a
+          >
         </button>
         <form action="/artists/<%= locals.artist.artist_id %>" method="post">
           <button

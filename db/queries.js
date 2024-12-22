@@ -27,8 +27,16 @@ const getArtistIdFromRecordID = async (id) => {
     "SELECT artist_id FROM records WHERE id = $1",
     [id]
   );
-  console.log(rows);
+  //console.log(rows);
   return rows[0].artist_id;
+};
+
+const getArtistFromRecordId = async (id) => {
+  const { rows } = await pool.query(
+    "SELECT artist FROM records WHERE id = $1",
+    [id]
+  );
+  return rows[0].artist;
 };
 
 const getArtistRecords = async (id) => {
@@ -43,7 +51,7 @@ const getRecordDetails = async (id) => {
   const { rows } = await pool.query("SELECT * FROM records WHERE id = $1", [
     id,
   ]);
-  return rows;
+  return rows[0];
 };
 
 const addNewArtist = async (name) => {
@@ -58,16 +66,15 @@ const addNewRecord = async (title, artist_id, yr, genre, label) => {
   );
 };
 
-const deleteRecord = async (id) => {
-  await pool.query("DELETE FROM records WHERE id = $1", [id]);
+const updateRecord = async (title, yr, genre, label, id) => {
+  await pool.query(
+    "UPDATE records SET title = $1, yr = $2, genre = $3, label = $4 WHERE id = $5",
+    [title, yr, genre, label, id]
+  );
 };
 
-const getArtistFromRecordId = async (id) => {
-  const { rows } = await pool.query(
-    "SELECT artist FROM records WHERE id = $1",
-    [id]
-  );
-  return rows[0].artist;
+const deleteRecord = async (id) => {
+  await pool.query("DELETE FROM records WHERE id = $1", [id]);
 };
 
 const deleteArtist = async (id) => {
@@ -84,6 +91,7 @@ module.exports = {
   getRecordDetails,
   addNewArtist,
   addNewRecord,
+  updateRecord,
   deleteRecord,
   getArtistFromRecordId,
   deleteArtist,

@@ -8,7 +8,7 @@
   <body>
     <%- include('header') %> <%- include('sidebar') %>
     <h1>Update record</h1>
-    <form action="/title/update" method="post">
+    <form action="./update" method="post">
       <label for="update_title">Record title: </label>
       <input
         type="text"
@@ -37,7 +37,9 @@
         id="update_genre"
         value="<%= locals.record.genre %>"
       />
-      <button type="submit">Update</button>
+      <button type="submit" name="update_id" value="<%= locals.record.id %>">
+        Update
+      </button>
     </form>
   </body>
 </html>
