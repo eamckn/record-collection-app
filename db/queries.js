@@ -4,46 +4,6 @@ const getAllRecords = async () => {
   const { rows } = await pool.query(
     "SELECT title, artists.name AS artist, yr, genre, label FROM records INNER JOIN artists ON records.artist_id = artists.artist_id"
   );
-  //console.log(rows);
-  return rows;
-};
-
-const getAllArtists = async () => {
-  const { rows } = await pool.query("SELECT * FROM artists");
-  return rows;
-};
-
-const getArtistById = async (id) => {
-  const { rows } = await pool.query(
-    "SELECT * FROM artists WHERE artist_id = $1",
-    [id]
-  );
-  //console.log(rows);
-  return rows[0];
-};
-
-const getArtistIdFromRecordID = async (id) => {
-  const { rows } = await pool.query(
-    "SELECT artist_id FROM records WHERE id = $1",
-    [id]
-  );
-  //console.log(rows);
-  return rows[0].artist_id;
-};
-
-const getArtistFromRecordId = async (id) => {
-  const { rows } = await pool.query(
-    "SELECT artist FROM records WHERE id = $1",
-    [id]
-  );
-  return rows[0].artist;
-};
-
-const getArtistRecords = async (id) => {
-  const { rows } = await pool.query(
-    "SELECT id, title, yr, genre, label FROM records WHERE artist_id = $1",
-    [id]
-  );
   return rows;
 };
 
@@ -54,9 +14,41 @@ const getRecordDetails = async (id) => {
   return rows[0];
 };
 
-const addNewArtist = async (name) => {
-  //console.log(name);
-  await pool.query("INSERT INTO artists (name) VALUES ($1)", [name]);
+const getArtistRecords = async (id) => {
+  const { rows } = await pool.query(
+    "SELECT id, title, yr, genre, label FROM records WHERE artist_id = $1",
+    [id]
+  );
+  return rows;
+};
+
+const getAllArtists = async () => {
+  const { rows } = await pool.query("SELECT * FROM artists");
+  return rows;
+};
+
+const getArtistByArtistID = async (id) => {
+  const { rows } = await pool.query(
+    "SELECT * FROM artists WHERE artist_id = $1",
+    [id]
+  );
+  return rows[0];
+};
+
+const getArtistFromRecordId = async (id) => {
+  const { rows } = await pool.query(
+    "SELECT artist FROM records WHERE id = $1",
+    [id]
+  );
+  return rows[0].artist;
+};
+
+const getArtistIdFromRecordID = async (id) => {
+  const { rows } = await pool.query(
+    "SELECT artist_id FROM records WHERE id = $1",
+    [id]
+  );
+  return rows[0].artist_id;
 };
 
 const addNewRecord = async (title, artist_id, yr, genre, label) => {
@@ -64,6 +56,10 @@ const addNewRecord = async (title, artist_id, yr, genre, label) => {
     "INSERT INTO records (title, artist_id, yr, genre, label) VALUES ($1, $2, $3, $4, $5)",
     [title, artist_id, yr, genre, label]
   );
+};
+
+const addNewArtist = async (name) => {
+  await pool.query("INSERT INTO artists (name) VALUES ($1)", [name]);
 };
 
 const updateRecord = async (title, yr, genre, label, id) => {
@@ -91,16 +87,16 @@ const deleteArtist = async (id) => {
 
 module.exports = {
   getAllRecords,
-  getAllArtists,
-  getArtistById,
-  getArtistIdFromRecordID,
-  getArtistRecords,
   getRecordDetails,
-  addNewArtist,
+  getArtistRecords,
+  getAllArtists,
+  getArtistByArtistID,
+  getArtistFromRecordId,
+  getArtistIdFromRecordID,
   addNewRecord,
+  addNewArtist,
   updateRecord,
   updateArtist,
   deleteRecord,
-  getArtistFromRecordId,
   deleteArtist,
 };
