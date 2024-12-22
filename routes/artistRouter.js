@@ -3,7 +3,11 @@ const artistRouter = Router();
 const artistController = require("../controllers/artistController");
 
 artistRouter.get("/:artist_id", artistController.displayArtistRecordsGet);
-artistRouter.post("/:artist_id", artistController.deleteArtistRecordPost);
+artistRouter.post(
+  "/:artist_id/:record_id/delete",
+  artistController.deleteArtistRecordPost
+);
+artistRouter.post("/:artist_id/delete", artistController.deleteArtistPost);
 artistRouter.get("/:artist_id/new", artistController.displayNewRecordFormGet);
 artistRouter.post("/:artist_id/new", artistController.addNewRecordPost);
 artistRouter.get("/:artist_id/update", artistController.updateArtistGet);

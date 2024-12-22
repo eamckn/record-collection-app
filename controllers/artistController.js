@@ -90,6 +90,12 @@ const deleteArtistRecordPost = async (req, res) => {
   res.redirect(`/artists/${artist_id}`);
 };
 
+const deleteArtistPost = async (req, res) => {
+  const { artist_id } = req.body;
+  await db.deleteArtist(artist_id);
+  res.redirect("/");
+};
+
 module.exports = {
   displayArtistRecordsGet,
   displayRecordDetailsGet,
@@ -100,4 +106,5 @@ module.exports = {
   updateArtistGet,
   updateArtistPost,
   deleteArtistRecordPost,
+  deleteArtistPost,
 };

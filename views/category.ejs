@@ -9,7 +9,10 @@
     <div>
       <%- include('header') %> <%- include('sidebar', {artists: artists}) %>
       <h1>All records for <%= locals.artist.name %></h1>
-      <form action="/delete" method="post">
+      <form
+        action="/artists/<%= locals.artist.artist_id %>/delete"
+        method="post"
+      >
         <button
           name="artist_id"
           value="<%= locals.artist.artist_id %>"
@@ -37,7 +40,10 @@
             >Update</a
           >
         </button>
-        <form action="/artists/<%= locals.artist.artist_id %>" method="post">
+        <form
+          action="/artists/<%= locals.artist.artist_id %>/<%= record.id %>/delete"
+          method="post"
+        >
           <button
             class="delete"
             name="record_id"
