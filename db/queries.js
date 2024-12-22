@@ -73,6 +73,13 @@ const updateRecord = async (title, yr, genre, label, id) => {
   );
 };
 
+const updateArtist = async (name, id) => {
+  await pool.query("UPDATE artists SET name = $1 WHERE artist_id = $2", [
+    name,
+    id,
+  ]);
+};
+
 const deleteRecord = async (id) => {
   await pool.query("DELETE FROM records WHERE id = $1", [id]);
 };
@@ -92,6 +99,7 @@ module.exports = {
   addNewArtist,
   addNewRecord,
   updateRecord,
+  updateArtist,
   deleteRecord,
   getArtistFromRecordId,
   deleteArtist,

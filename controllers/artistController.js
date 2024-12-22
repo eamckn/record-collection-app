@@ -71,9 +71,17 @@ const updateRecordPost = async (req, res) => {
 };
 
 const updateArtistGet = async (req, res) => {
-  const { artist } = req.params;
+  const { artist_id } = req.params;
   const artists = await db.getAllArtists();
+  const artist = await db.getArtistById(artist_id);
+  //console.log(artist);
   res.render("updateCategory", { artist: artist, artists: artists });
+};
+
+const updateArtistPost = async (req, res) => {
+  const { update_artist, update_artist_id } = req.body;
+  await db.updateArtist(update_artist, update_artist_id);
+  res.redirect(`/artists/${update_artist_id}`);
 };
 
 const displayRecordDetailsGet = async (req, res) => {
@@ -91,5 +99,6 @@ module.exports = {
   updateRecordGet,
   updateRecordPost,
   updateArtistGet,
+  updateArtistPost,
   displayRecordDetailsGet,
 };
