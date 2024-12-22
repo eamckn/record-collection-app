@@ -34,7 +34,6 @@ VALUES
 
 async function main() {
   console.log("seeding...");
-  console.log(process.env.DATABASE_PUBLIC_URL);
   const client = new Client({
     connectionString: process.env.DATABASE_PUBLIC_URL,
   });
