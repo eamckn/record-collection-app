@@ -2,15 +2,16 @@ const pool = require("./pool");
 
 const getAllRecords = async () => {
   const { rows } = await pool.query(
-    "SELECT title, artists.name AS artist, yr, genre, label FROM records INNER JOIN artists ON records.artist_id = artists.artist_id"
+    "SELECT *, artists.name AS artist FROM records INNER JOIN artists ON records.artist_id = artists.artist_id"
   );
   return rows;
 };
 
 const getRecordDetails = async (id) => {
-  const { rows } = await pool.query("SELECT * FROM records WHERE id = $1", [
-    id,
-  ]);
+  const { rows } = await pool.query(
+    "SELECT *, artists.name AS artist FROM records INNER JOIN artists ON records.artist_id = artists.artist_id WHERE id = $1",
+    [id]
+  );
   return rows[0];
 };
 

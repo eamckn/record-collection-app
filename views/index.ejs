@@ -4,20 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
+    <link rel="stylesheet" href="/reset.css" />
+    <link rel="stylesheet" href="/header.css" />
+    <link rel="stylesheet" href="/sidebar.css" />
+    <link rel="stylesheet" href="/index.css" />
   </head>
   <body>
-    <div>
-      <%- include('header') %> <%- include('sidebar', { artists: artists }) %>
-      <h1>All records view</h1>
-      <% if (locals.records) { %> <% locals.records.forEach(record => { %>
-      <ul class="record-card">
-        <li><%= record.title %></li>
-        <li><%= record.artist %></li>
-        <li><%= record.yr %></li>
-        <li><%= record.label %></li>
-        <li><%= record.genre %></li>
-      </ul>
-      <% })} %>
+    <%- include('header') %>
+    <div id="display">
+      <%- include('sidebar', { artists: artists }) %>
+      <div class="content">
+        <h1>All records</h1>
+        <div id="all-records">
+          <% if (locals.records) { %> <% locals.records.forEach(record => { %>
+          <a href="/artists/<%= record.artist_id %>/<%= record.id %>">
+            <div class="record-item">
+              <img
+                class="record-art"
+                src="https://www.svgrepo.com/show/508699/landscape-placeholder.svg"
+                alt=""
+              />
+              <ul class="record-info">
+                <li class="record-artist"><%= record.artist %></li>
+                <li class="record-title"><%= record.title %></li>
+              </ul>
+            </div>
+          </a>
+          <!-- <ul class="record-card">
+            <li><%= record.title %></li>
+            <li><%= record.artist %></li>
+            <li><%= record.yr %></li>
+            <li><%= record.label %></li>
+            <li><%= record.genre %></li>
+          </ul> -->
+          <% })} %>
+        </div>
+      </div>
       <!-- <%- include('newCategoryModal') %> -->
     </div>
     <script>

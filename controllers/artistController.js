@@ -14,7 +14,7 @@ const displayArtistRecordsGet = async (req, res) => {
 
 const displayRecordDetailsGet = async (req, res) => {
   const { id } = req.params;
-  const [record] = await db.getRecordDetails(id);
+  const record = await db.getRecordDetails(id);
   const artists = await db.getAllArtists();
   res.render("details", { record: record, artists: artists });
 };
