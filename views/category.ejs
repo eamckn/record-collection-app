@@ -19,11 +19,7 @@
           <% if (locals.records) { %> <% locals.records.forEach(record => { %>
           <a href="/artists/<%= record.artist_id %>/<%= record.id %>">
             <div class="record-item">
-              <img
-                class="record-art"
-                src="https://www.svgrepo.com/show/508699/landscape-placeholder.svg"
-                alt=""
-              />
+              <img class="record-art" src="<%= record.art %>" alt="" />
               <ul class="record-info">
                 <li class="record-title"><%= record.title %></li>
               </ul>

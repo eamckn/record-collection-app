@@ -4,7 +4,12 @@
     <li><a href="/">Home</a></li>
     <ul>
       <% if (locals.artists) { %> <% locals.artists.forEach(artist => { %>
-      <li><a href="/artists/<%= artist.artist_id %>"><%= artist.name %></a></li>
+      <a href="/artists/<%= artist.artist_id %>" class="artist"
+        ><div class="img-wrapper">
+          <img src="<%= artist.img %>" alt="" />
+        </div>
+        <li class="artist-name"><%= artist.name %></li></a
+      >
       <% }) %> <% } %>
     </ul>
   </nav>
