@@ -17,7 +17,7 @@ const getRecordDetails = async (id) => {
 
 const getArtistRecords = async (id) => {
   const { rows } = await pool.query(
-    "SELECT id, title, yr, genre, label FROM records WHERE artist_id = $1",
+    "SELECT * FROM records WHERE artist_id = $1",
     [id]
   );
   return rows;

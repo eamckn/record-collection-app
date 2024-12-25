@@ -4,58 +4,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Artist/Category</title>
+    <link rel="stylesheet" href="/app.css" />
+    <link rel="stylesheet" href="/header.css" />
+    <link rel="stylesheet" href="/sidebar.css" />
+    <link rel="stylesheet" href="/category.css" />
   </head>
   <body>
-    <div>
-      <%- include('header') %> <%- include('sidebar', {artists: artists}) %>
-      <h1>All records for <%= locals.artist.name %></h1>
-      <form
-        action="/artists/<%= locals.artist.artist_id %>/delete"
-        method="post"
-      >
-        <button
-          name="artist_id"
-          value="<%= locals.artist.artist_id %>"
-          type="submit"
-        >
-          Delete artist
-        </button>
-      </form>
-      <a href="/artists/<%= locals.artist.artist_id %>/update"
-        ><button>Update artist name</button></a
-      >
-      <a href="/artists/<%= locals.artist.artist_id %>/new"
-        ><button>Add record</button></a
-      >
-      <% if (locals.records) { %>
-      <ul>
-        <% locals.records.map(record => { %>
-        <li><%= record.title %></li>
-        <li><%= record.yr %></li>
-        <li><%= record.label %></li>
-        <li><%= record.genre %></li>
-        <button class="update">
-          <a
-            href="/artists/<%= locals.artist.artist_id %>/<%= record.id %>/update"
-            >Update</a
-          >
-        </button>
-        <form
-          action="/artists/<%= locals.artist.artist_id %>/<%= record.id %>/delete"
-          method="post"
-        >
-          <button
-            class="delete"
-            name="record_id"
-            value="<%= record.id %>"
-            type="submit"
-          >
-            Delete
-          </button>
-        </form>
-        <% }) %>
-      </ul>
-      <% } %>
+    <%- include('header') %>
+    <div id="display">
+      <%- include('sidebar', { artists: artists }) %>
+      <div class="content">
+        <h1>All records by <%= locals.artist.name %></h1>
+        <div id="artist-records">
+          <% if (locals.records) { %> <% locals.records.forEach(record => { %>
+          <a href="/artists/<%= record.artist_id %>/<%= record.id %>">
+            <div class="record-item">
+              <img
+                class="record-art"
+                src="https://www.svgrepo.com/show/508699/landscape-placeholder.svg"
+                alt=""
+              />
+              <ul class="record-info">
+                <li class="record-title"><%= record.title %></li>
+              </ul>
+            </div>
+          </a>
+          <% })} %>
+        </div>
+      </div>
     </div>
   </body>
 </html>
