@@ -1,10 +1,47 @@
 #sidebar {
-  width: 20%;
-  border: 1px solid black;
+  width: 18%;
 
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   overflow: scroll;
+
+  background-color: azure;
+}
+
+#sidebar-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 1rem 2rem;
+}
+
+#sidebar-top svg {
+  width: 2rem;
+  height: auto;
+
+  color: black;
+}
+
+#sidebar-top button {
+  width: 2rem;
+  height: 2rem;
+
+  padding: 0.5rem;
+
+  border-radius: 50%;
+  border: none;
+  background-color: black;
+  color: white;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  gap: 1rem;
 }
 
 #sidebar ul {
@@ -17,6 +54,8 @@ a.artist {
   display: flex;
   align-items: center;
   gap: 1rem;
+
+  padding-left: 2rem;
 }
 
 a.artist .img-wrapper {
