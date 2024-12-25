@@ -52,29 +52,32 @@ const getArtistIdFromRecordID = async (id) => {
   return rows[0].artist_id;
 };
 
-const addNewRecord = async (title, artist_id, yr, genre, label) => {
+const addNewRecord = async (title, artist_id, yr, genre, label, art) => {
   await pool.query(
-    "INSERT INTO records (title, artist_id, yr, genre, label) VALUES ($1, $2, $3, $4, $5)",
-    [title, artist_id, yr, genre, label]
+    "INSERT INTO records (title, artist_id, yr, genre, label, art) VALUES ($1, $2, $3, $4, $5, $6)",
+    [title, artist_id, yr, genre, label, art]
   );
 };
 
-const addNewArtist = async (name) => {
-  await pool.query("INSERT INTO artists (name) VALUES ($1)", [name]);
-};
-
-const updateRecord = async (title, yr, genre, label, id) => {
-  await pool.query(
-    "UPDATE records SET title = $1, yr = $2, genre = $3, label = $4 WHERE id = $5",
-    [title, yr, genre, label, id]
-  );
-};
-
-const updateArtist = async (name, id) => {
-  await pool.query("UPDATE artists SET name = $1 WHERE artist_id = $2", [
+const addNewArtist = async (name, url) => {
+  await pool.query("INSERT INTO artists (name, img) VALUES ($1, $2)", [
     name,
-    id,
+    url,
   ]);
+};
+
+const updateRecord = async (title, yr, genre, label, art, id) => {
+  await pool.query(
+    "UPDATE records SET title = $1, yr = $2, genre = $3, label = $4, art = $5 WHERE id = $6",
+    [title, yr, genre, label, art, id]
+  );
+};
+
+const updateArtist = async (name, url, id) => {
+  await pool.query(
+    "UPDATE artists SET name = $1, img = $2 WHERE artist_id = $3",
+    [name, url, id]
+  );
 };
 
 const deleteRecord = async (id) => {

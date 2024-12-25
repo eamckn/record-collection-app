@@ -33,13 +33,15 @@ const addNewRecordPost = async (req, res) => {
     record_year,
     record_genre,
     record_label,
+    record_art,
   } = req.body;
   await db.addNewRecord(
     record_title,
     record_artist_id,
     record_year,
     record_genre,
-    record_label
+    record_label,
+    record_art
   );
   res.redirect(`/artists/${record_artist_id}`);
 };
@@ -57,6 +59,7 @@ const updateRecordPost = async (req, res) => {
     update_release_year,
     update_genre,
     update_label,
+    update_art,
     update_id,
   } = req.body;
   await db.updateRecord(
@@ -64,10 +67,11 @@ const updateRecordPost = async (req, res) => {
     update_release_year,
     update_genre,
     update_label,
+    update_art,
     update_id
   );
   const artist_id = await db.getArtistIdFromRecordID(update_id);
-  res.redirect(`/artists/${artist_id}`);
+  res.redirect(`/artists/${artist_id}/${update_id}`);
 };
 
 const updateArtistGet = async (req, res) => {
@@ -78,8 +82,8 @@ const updateArtistGet = async (req, res) => {
 };
 
 const updateArtistPost = async (req, res) => {
-  const { update_artist, update_artist_id } = req.body;
-  await db.updateArtist(update_artist, update_artist_id);
+  const { update_artist, update_artist_img, update_artist_id } = req.body;
+  await db.updateArtist(update_artist, update_artist_img, update_artist_id);
   res.redirect(`/artists/${update_artist_id}`);
 };
 

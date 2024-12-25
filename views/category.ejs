@@ -16,6 +16,18 @@
       <div class="content">
         <div class="content-header">
           <h1>All records by <%= locals.artist.name %></h1>
+          <a href="/artists/<%= locals.artist.artist_id  %>/update">
+            <button>Update artist</button>
+          </a>
+          <form action="./<%= locals.artist.artist_id %>/delete" method="post">
+            <button
+              type="submit"
+              name="artist_id"
+              value="<%= locals.artist.artist_id %>"
+            >
+              Delete artist
+            </button>
+          </form>
           <a href="/artists/<%= locals.artist.artist_id %>/new"
             ><button>+</button></a
           >

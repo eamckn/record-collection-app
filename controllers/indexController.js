@@ -12,8 +12,8 @@ const addNewArtistGet = async (req, res) => {
 };
 
 const addNewArtistPost = async (req, res) => {
-  const { new_artist } = req.body;
-  await db.addNewArtist(new_artist);
+  const { new_artist, new_artist_img } = req.body;
+  await db.addNewArtist(new_artist, new_artist_img);
   res.redirect("/");
 };
 
