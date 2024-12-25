@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/app.css" />
     <link rel="stylesheet" href="/header.css" />
     <link rel="stylesheet" href="/sidebar.css" />
-    <link rel="stylesheet" href="/categoryForm.css" />
+    <link rel="stylesheet" href="/forms.css" />
   </head>
   <body>
     <%- include('header') %>
@@ -21,11 +21,11 @@
           id="new-artist-form"
           class="artist-form"
         >
-          <div id="new-artist-name" class="artist-name">
+          <div id="new-artist-name" class="form-row artist-name">
             <label for="new_artist">Artist name: </label>
             <input type="text" name="new_artist" id="new_artist" />
           </div>
-          <div id="new-artist-img" class="artist-img">
+          <div id="new-artist-img" class="form-row artist-img">
             <label for="new_artist_img">URL for artist image: </label>
             <input type="text" name="new_artist_img" id="new_artist_img" />
           </div>

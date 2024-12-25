@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/app.css" />
     <link rel="stylesheet" href="/header.css" />
     <link rel="stylesheet" href="/sidebar.css" />
-    <link rel="stylesheet" href="/recordForm.css" />
+    <link rel="stylesheet" href="/forms.css" />
   </head>
   <body>
     <%- include('header') %>
@@ -23,23 +23,23 @@
           id="new-record-form"
           class="record-form"
         >
-          <div class="form-row record-title">
+          <div id="new-record-title" class="form-row record-title">
             <label for="record_title">Record title: </label>
             <input type="text" name="record_title" id="record_title" />
           </div>
-          <div class="form-row record-year">
+          <div id="new-record-year" class="form-row record-year">
             <label for="record_year">Release year: </label>
             <input type="text" name="record_year" id="record_year" />
           </div>
-          <div class="form-row record-label">
+          <div id="new-record-label" class="form-row record-label">
             <label for="record_label">Label: </label>
             <input type="text" name="record_label" id="record_label" />
           </div>
-          <div class="form-row record-genre">
+          <div id="new-record-genre" class="form-row record-genre">
             <label for="record_genre">Genre: </label>
             <input type="text" name="record_genre" id="record_genre" />
           </div>
-          <div class="form-row record-art">
+          <div id="new-record-art" class="form-row record-art">
             <label for="record_art">URL for album art: </label>
             <input type="text" name="record_art" id="record_art" />
           </div>

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/app.css" />
     <link rel="stylesheet" href="/header.css" />
     <link rel="stylesheet" href="/sidebar.css" />
-    <link rel="stylesheet" href="/recordForm.css" />
+    <link rel="stylesheet" href="/forms.css" />
   </head>
   <body>
     <%- include('header') %>
@@ -21,7 +21,7 @@
           id="update-record-form"
           class="record-form"
         >
-          <div class="form-row record-title">
+          <div id="update-record-title" class="form-row record-title">
             <label for="update_title">Record title: </label>
             <input
               type="text"
@@ -30,7 +30,7 @@
               value="<%= locals.record.title %>"
             />
           </div>
-          <div class="form-row update-year">
+          <div id="update-record-year" class="form-row update-year">
             <label for="update_release_year">Release year: </label>
             <input
               type="text"
@@ -39,7 +39,7 @@
               value="<%= locals.record.yr %>"
             />
           </div>
-          <div class="form-row update-label">
+          <div id="update-record-label" class="form-row update-label">
             <label for="update_label">Label: </label>
             <input
               type="text"
@@ -48,7 +48,7 @@
               value="<%= locals.record.label %>"
             />
           </div>
-          <div class="form-row update-genre">
+          <div id="update-record-genre" class="form-row update-genre">
             <label for="update_genre">Genre: </label>
             <input
               type="text"
@@ -57,7 +57,7 @@
               value="<%= locals.record.genre %>"
             />
           </div>
-          <div class="form-row update-art">
+          <div id="update-record-art" class="form-row update-art">
             <label for="update_art">URL for album art: </label>
             <input
               type="text"
