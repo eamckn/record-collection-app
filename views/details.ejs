@@ -23,8 +23,23 @@
           />
           <div id="details">
             <div id="button-wrapper">
-              <button>Edit</button>
-              <button>X</button>
+              <a
+                href="/artists/<%= locals.record.artist_id %>/<%= locals.record.id %>/update"
+                ><button>Edit</button></a
+              >
+              <form
+                action="/artists/<%= locals.record.artist_id %>/<%= locals.record.id %>/delete"
+                method="post"
+              >
+                <button
+                  class="delete"
+                  name="record_id"
+                  value="<%= record.id %>"
+                  type="submit"
+                >
+                  X
+                </button>
+              </form>
             </div>
             <div id="record-info">
               <ul id="row-one">
