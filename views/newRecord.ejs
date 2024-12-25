@@ -4,26 +4,54 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>New record</title>
+    <link rel="stylesheet" href="/app.css" />
+    <link rel="stylesheet" href="/header.css" />
+    <link rel="stylesheet" href="/sidebar.css" />
+    <link rel="stylesheet" href="/recordForm.css" />
   </head>
   <body>
-    <%- include('header') %> <%- include('sidebar', { artists: artists }) %>
-    <h1>Add new record to your collection of records by <%= artist.name %></h1>
-    <form action="/artists/<%= locals.artist.artist_id %>/new" method="post">
-      <label for="record_title">Record title: </label>
-      <input type="text" name="record_title" id="record_title" />
-      <label for="record_year">Release year: </label>
-      <input type="text" name="record_year" id="record_year" />
-      <label for="record_label">Label: </label>
-      <input type="text" name="record_label" id="record_label" />
-      <label for="record_genre">Genre: </label>
-      <input type="text" name="record_genre" id="record_genre" />
-      <button
-        type="submit"
-        name="record_artist_id"
-        value="<%= locals.artist.artist_id %>"
-      >
-        Add
-      </button>
-    </form>
+    <%- include('header') %>
+    <div id="display">
+      <%- include('sidebar', { artists: artists }) %>
+      <div class="content">
+        <h1>
+          Add new record to your collection of records by <%= artist.name %>
+        </h1>
+        <form
+          action="/artists/<%= locals.artist.artist_id %>/new"
+          method="post"
+          id="new-record-form"
+          class="record-form"
+        >
+          <div class="form-row record-title">
+            <label for="record_title">Record title: </label>
+            <input type="text" name="record_title" id="record_title" />
+          </div>
+          <div class="form-row record-year">
+            <label for="record_year">Release year: </label>
+            <input type="text" name="record_year" id="record_year" />
+          </div>
+          <div class="form-row record-label">
+            <label for="record_label">Label: </label>
+            <input type="text" name="record_label" id="record_label" />
+          </div>
+          <div class="form-row record-genre">
+            <label for="record_genre">Genre: </label>
+            <input type="text" name="record_genre" id="record_genre" />
+          </div>
+          <div class="form-row record-art">
+            <label for="record_art">URL for album art: </label>
+            <input type="text" name="record_art" id="record_art" />
+          </div>
+          <button
+            type="submit"
+            name="record_artist_id"
+            value="<%= locals.artist.artist_id %>"
+          >
+            Add
+          </button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
