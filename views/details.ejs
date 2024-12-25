@@ -4,19 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Record details</title>
-    <link rel="stylesheet" href="/reset.css" />
+    <link rel="stylesheet" href="/app.css" />
     <link rel="stylesheet" href="/header.css" />
     <link rel="stylesheet" href="/sidebar.css" />
+    <link rel="stylesheet" href="/details.css" />
   </head>
   <body>
-    <%- include('header') %> <%- include('sidebar') %>
-    <h1>Record details for <%= record.title %></h1>
-    <ul>
-      <li><%= record.title %></li>
-      <li><%= record.artist %></li>
-      <li><%= record.yr %></li>
-      <li><%= record.label %></li>
-      <li><%= record.genre %></li>
-    </ul>
+    <%- include('header') %>
+    <div id="display">
+      <%- include('sidebar', { artists: artists }) %>
+      <div class="content">
+        <h1>Details for <%= record.title %> by <%= record.artist %></h1>
+        <div id="detailed-record">
+          <img
+            class="record-art"
+            src="https://www.svgrepo.com/show/508699/landscape-placeholder.svg"
+            alt=""
+          />
+          <div id="details">
+            <div id="button-wrapper">
+              <button>Edit</button>
+              <button>X</button>
+            </div>
+            <div id="record-info">
+              <ul id="row-one">
+                <li><strong>Title:</strong> <%= record.title %></li>
+                <li><strong>Artist:</strong> <%= record.artist %></li>
+              </ul>
+              <ul id="row-two">
+                <li><strong>Release year:</strong> <%= record.yr %></li>
+                <li><strong>Genre:</strong> <%= record.genre %></li>
+                <li><strong>Released by:</strong> <%= record.label %></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
