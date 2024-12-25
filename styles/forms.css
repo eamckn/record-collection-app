@@ -1,3 +1,32 @@
+.update-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 4rem;
+}
+
+.update-content div.img-wrapper {
+  overflow: hidden;
+}
+
+.img-wrapper.square {
+  width: 200px;
+  height: 200px;
+}
+
+.img-wrapper.circle {
+  width: 200px;
+  height: 200px;
+
+  border-radius: 50%;
+}
+
+.update-content img {
+  width: 200px;
+  height: 200px;
+}
+
 form.record-form,
 form.artist-form {
   display: flex;
@@ -10,6 +39,11 @@ form.artist-form {
   padding: 2rem;
   width: 50%;
 
+  margin: 4rem 0;
+}
+
+form#new-record-form,
+form#new-artist-form {
   margin: 4rem auto;
 }
 

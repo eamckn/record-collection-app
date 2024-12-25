@@ -15,38 +15,43 @@
       <%- include('sidebar', { artists: artists }) %>
       <div class="content">
         <h1>Update info for <%= artist.name %></h1>
-        <form
-          action="./update"
-          method="post"
-          id="new-artist-form"
-          class="artist-form"
-        >
-          <div id="update-artist-name" class="form-row artist-name">
-            <label for="update_artist">Artist name: </label>
-            <input
-              type="text"
-              name="update_artist"
-              id="update_artist"
-              value="<%= artist.name %>"
-            />
+        <div class="update-content">
+          <div class="img-wrapper circle">
+            <img src="<%= artist.img %>" alt="" />
           </div>
-          <div id="update-artist-img" class="form-row artist-img">
-            <label for="update_artist_img">URL for artist image: </label>
-            <input
-              type="text"
-              name="update_artist_img"
-              id="update_artist_img"
-              value="<%= artist.img %>"
-            />
-          </div>
-          <button
-            type="submit"
-            name="update_artist_id"
-            value="<%= artist.artist_id %>"
+          <form
+            action="./update"
+            method="post"
+            id="update-artist-form"
+            class="artist-form"
           >
-            Update
-          </button>
-        </form>
+            <div id="update-artist-name" class="form-row artist-name">
+              <label for="update_artist">Artist name: </label>
+              <input
+                type="text"
+                name="update_artist"
+                id="update_artist"
+                value="<%= artist.name %>"
+              />
+            </div>
+            <div id="update-artist-img" class="form-row artist-img">
+              <label for="update_artist_img">URL for artist image: </label>
+              <input
+                type="text"
+                name="update_artist_img"
+                id="update_artist_img"
+                value="<%= artist.img %>"
+              />
+            </div>
+            <button
+              type="submit"
+              name="update_artist_id"
+              value="<%= artist.artist_id %>"
+            >
+              Update
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   </body>
