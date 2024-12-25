@@ -1,0 +1,47 @@
+form.artist-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+
+  border: 1px solid black;
+  padding: 2rem;
+  width: 50%;
+  height: 50%;
+
+  margin: 4rem auto;
+}
+
+div.artist-name {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  width: 70%;
+
+  gap: 1rem;
+}
+
+div.artist-img {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  width: 70%;
+
+  gap: 1rem;
+}
+
+label {
+  display: block;
+}
+
+input {
+  display: block;
+  width: 50%;
+
+  padding: 0.5rem;
+}
+
+form button {
+  padding: 1rem;
+}

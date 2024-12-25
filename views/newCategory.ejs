@@ -4,14 +4,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add new artist</title>
+    <link rel="stylesheet" href="/app.css" />
+    <link rel="stylesheet" href="/header.css" />
+    <link rel="stylesheet" href="/sidebar.css" />
+    <link rel="stylesheet" href="/categoryForm.css" />
   </head>
   <body>
-    <%- include('header') %> <%- include('sidebar', { artists: artists }) %>
-    <h1>Add new artist</h1>
-    <form action="/new" method="post">
-      <label for="new_artist">New artist name: </label>
-      <input type="text" name="new_artist" id="new_artist" />
-      <button type="submit">Add</button>
-    </form>
+    <%- include('header') %>
+    <div id="display">
+      <%- include('sidebar', { artists: artists }) %>
+      <div class="content">
+        <h1>Add new artist</h1>
+        <form
+          action="/new"
+          method="post"
+          id="new-artist-form"
+          class="artist-form"
+        >
+          <div id="new-artist-name" class="artist-name">
+            <label for="new_artist">Artist name: </label>
+            <input type="text" name="new_artist" id="new_artist" />
+          </div>
+          <div id="new-artist-img" class="artist-img">
+            <label for="new_artist_img">URL for artist image: </label>
+            <input type="text" name="new_artist_img" id="new_artist_img" />
+          </div>
+          <button type="submit">Add</button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

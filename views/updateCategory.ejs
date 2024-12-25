@@ -4,25 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Update artist name</title>
+    <link rel="stylesheet" href="/app.css" />
+    <link rel="stylesheet" href="/header.css" />
+    <link rel="stylesheet" href="/sidebar.css" />
+    <link rel="stylesheet" href="/categoryForm.css" />
   </head>
   <body>
-    <%- include('header') %> <%- include('sidebar') %>
-    <h1>Update artist name for <%= artist.name %></h1>
-    <form action="./update" method="post">
-      <label for="update_artist">Artist name: </label>
-      <input
-        type="text"
-        name="update_artist"
-        id="update_artist"
-        value="<%= artist.name %>"
-      />
-      <button
-        type="submit"
-        name="update_artist_id"
-        value="<%= artist.artist_id %>"
-      >
-        Update
-      </button>
-    </form>
+    <%- include('header') %>
+    <div id="display">
+      <%- include('sidebar', { artists: artists }) %>
+      <div class="content">
+        <h1>Update info for <%= artist.name %></h1>
+        <form
+          action="./update"
+          method="post"
+          id="new-artist-form"
+          class="artist-form"
+        >
+          <div id="update-artist-name" class="artist-name">
+            <label for="update_artist">Artist name: </label>
+            <input
+              type="text"
+              name="update_artist"
+              id="update_artist"
+              value="<%= artist.name %>"
+            />
+          </div>
+          <div id="update-artist-img" class="artist-img">
+            <label for="update_artist_img">URL for artist image: </label>
+            <input
+              type="text"
+              name="update_artist_img"
+              id="update_artist_img"
+              value="<%= artist.img %>"
+            />
+          </div>
+          <button type="submit">Add</button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
