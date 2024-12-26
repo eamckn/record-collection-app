@@ -14,7 +14,9 @@
     <div id="display">
       <%- include('sidebar', { artists: artists }) %>
       <div class="content">
-        <h1>Add new artist</h1>
+        <div class="content-header">
+          <h1>Add new artist</h1>
+        </div>
         <form
           action="/new"
           method="post"
@@ -29,7 +31,7 @@
             <label for="new_artist_img">URL for artist image: </label>
             <input type="text" name="new_artist_img" id="new_artist_img" />
           </div>
-          <button type="submit">Add</button>
+          <button type="submit" class="submit">Add</button>
         </form>
       </div>
     </div>

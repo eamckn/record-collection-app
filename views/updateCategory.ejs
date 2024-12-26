@@ -14,7 +14,9 @@
     <div id="display">
       <%- include('sidebar', { artists: artists }) %>
       <div class="content">
-        <h1>Update info for <%= artist.name %></h1>
+        <div class="content-header">
+          <h1>Update info for <%= artist.name %></h1>
+        </div>
         <div class="update-content">
           <div class="img-wrapper circle">
             <img src="<%= artist.img %>" alt="" />
@@ -47,6 +49,7 @@
               type="submit"
               name="update_artist_id"
               value="<%= artist.artist_id %>"
+              class="submit"
             >
               Update
             </button>

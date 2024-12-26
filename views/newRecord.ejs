@@ -14,9 +14,11 @@
     <div id="display">
       <%- include('sidebar', { artists: artists }) %>
       <div class="content">
-        <h1>
-          Add new record to your collection of records by <%= artist.name %>
-        </h1>
+        <div class="content-header">
+          <h1>
+            Add new record to your collection of records by <%= artist.name %>
+          </h1>
+        </div>
         <form
           action="/artists/<%= locals.artist.artist_id %>/new"
           method="post"
@@ -47,6 +49,7 @@
             type="submit"
             name="record_artist_id"
             value="<%= locals.artist.artist_id %>"
+            class="submit"
           >
             Add
           </button>

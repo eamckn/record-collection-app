@@ -17,19 +17,20 @@
         <div class="content-header">
           <h1>All records by <%= locals.artist.name %></h1>
           <a href="/artists/<%= locals.artist.artist_id  %>/update">
-            <button>Update artist</button>
+            <button class="update">Update artist</button>
           </a>
           <form action="./<%= locals.artist.artist_id %>/delete" method="post">
             <button
               type="submit"
               name="artist_id"
               value="<%= locals.artist.artist_id %>"
+              class="delete"
             >
               Delete artist
             </button>
           </form>
           <a href="/artists/<%= locals.artist.artist_id %>/new"
-            ><button>+</button></a
+            ><button class="add">+</button></a
           >
         </div>
         <div id="artist-records">

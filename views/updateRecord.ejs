@@ -14,7 +14,9 @@
     <div id="display">
       <%- include('sidebar', { artists: artists }) %>
       <div class="content">
-        <h1>Update info for <%= record.title %></h1>
+        <div class="content-header">
+          <h1>Update info for <%= record.title %></h1>
+        </div>
         <div class="update-content">
           <div class="img-wrapper sqaure">
             <img src="<%= record.art %>" alt="" />
@@ -74,6 +76,7 @@
               type="submit"
               name="update_id"
               value="<%= locals.record.id %>"
+              class="submit"
             >
               Update
             </button>

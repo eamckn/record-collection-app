@@ -14,7 +14,9 @@
     <div id="display">
       <%- include('sidebar', { artists: artists }) %>
       <div class="content">
-        <h1>All records</h1>
+        <div class="content-header">
+          <h1>All records</h1>
+        </div>
         <div id="all-records">
           <% if (locals.records) { %> <% locals.records.forEach(record => { %>
           <a href="/artists/<%= record.artist_id %>/<%= record.id %>">

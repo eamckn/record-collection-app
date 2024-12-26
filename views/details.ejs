@@ -14,14 +14,16 @@
     <div id="display">
       <%- include('sidebar', { artists: artists }) %>
       <div class="content">
-        <h1>Details for <%= record.title %> by <%= record.artist %></h1>
+        <div class="content-header">
+          <h1>Details for <%= record.title %> by <%= record.artist %></h1>
+        </div>
         <div id="detailed-record">
           <img class="record-art" src="<%= record.art %>" alt="" />
           <div id="details">
             <div id="button-wrapper">
               <a
                 href="/artists/<%= locals.record.artist_id %>/<%= locals.record.id %>/update"
-                ><button>Edit</button></a
+                ><button class="update">Edit</button></a
               >
               <form
                 action="/artists/<%= locals.record.artist_id %>/<%= locals.record.id %>/delete"

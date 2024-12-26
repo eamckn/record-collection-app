@@ -1,8 +1,10 @@
 #header {
-  background-color: grey;
   height: 10%;
 
   display: flex;
   align-items: center;
   padding-left: 3rem;
+
+  background-color: #293344;
+  color: #eb5e28;
 }

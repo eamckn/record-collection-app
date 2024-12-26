@@ -7,13 +7,6 @@
   padding: 1rem;
 }
 
-#all-records .record-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
 img.record-art {
   width: 200px;
   height: auto;

@@ -26,12 +26,50 @@ a li:hover {
 div.content {
   flex: 1;
   overflow: scroll;
+
+  background-color: #48a9a6;
 }
 
-div.content > h1 {
+.content-header {
   position: sticky;
   top: 0;
   padding: 1rem 2rem;
 
-  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content-header h1 {
+  color: #fffcf2;
+}
+
+.record-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 1rem;
+  background-color: #293344;
+  border: 0.5rem solid #eb5e28;
+
+  border-radius: 10%;
+}
+
+.record-item li {
+  color: #ff7e6b;
+}
+
+button {
+  background-color: #293344;
+  color: #fffcf2;
+
+  padding: 0.5rem;
+  border: 2px solid #293344;
+}
+
+button:hover {
+  background-color: #fffcf2;
+  color: #293344;
 }
