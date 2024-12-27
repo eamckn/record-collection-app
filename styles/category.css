@@ -8,6 +8,16 @@
   justify-content: space-between;
 }
 
+.content-header .button-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+button.add {
+  padding: 0.5rem 0.75rem;
+}
+
 #artist-records {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

@@ -16,22 +16,27 @@
       <div class="content">
         <div class="content-header">
           <h1>All records by <%= locals.artist.name %></h1>
-          <a href="/artists/<%= locals.artist.artist_id  %>/update">
-            <button class="update">Update artist</button>
-          </a>
-          <form action="./<%= locals.artist.artist_id %>/delete" method="post">
-            <button
-              type="submit"
-              name="artist_id"
-              value="<%= locals.artist.artist_id %>"
-              class="delete"
+          <div class="button-wrapper">
+            <a href="/artists/<%= locals.artist.artist_id  %>/update">
+              <button class="update">Update artist</button>
+            </a>
+            <form
+              action="./<%= locals.artist.artist_id %>/delete"
+              method="post"
             >
-              Delete artist
-            </button>
-          </form>
-          <a href="/artists/<%= locals.artist.artist_id %>/new"
-            ><button class="add">+</button></a
-          >
+              <button
+                type="submit"
+                name="artist_id"
+                value="<%= locals.artist.artist_id %>"
+                class="delete"
+              >
+                Delete artist
+              </button>
+            </form>
+            <a href="/artists/<%= locals.artist.artist_id %>/new"
+              ><button class="add">+</button></a
+            >
+          </div>
         </div>
         <div id="artist-records">
           <% if (locals.records) { %> <% locals.records.forEach(record => { %>
