@@ -17,6 +17,7 @@
         <div class="content-header">
           <h1>Update info for <%= artist.name %></h1>
         </div>
+        <%- include('errors') %>
         <div class="update-content">
           <div class="img-wrapper circle">
             <img src="<%= artist.img %>" alt="" />
@@ -28,26 +29,26 @@
             class="artist-form"
           >
             <div id="update-artist-name" class="form-row artist-name">
-              <label for="update_artist">Artist name: </label>
+              <label for="artist_name">Artist name: </label>
               <input
                 type="text"
-                name="update_artist"
-                id="update_artist"
+                name="artist_name"
+                id="artist_name"
                 value="<%= artist.name %>"
               />
             </div>
             <div id="update-artist-img" class="form-row artist-img">
-              <label for="update_artist_img">URL for artist image: </label>
+              <label for="artist_img">URL for artist image: </label>
               <input
                 type="text"
-                name="update_artist_img"
-                id="update_artist_img"
+                name="artist_img"
+                id="artist_img"
                 value="<%= artist.img %>"
               />
             </div>
             <button
               type="submit"
-              name="update_artist_id"
+              name="artist_id"
               value="<%= artist.artist_id %>"
               class="submit"
             >

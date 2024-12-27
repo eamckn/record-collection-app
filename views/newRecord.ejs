@@ -19,6 +19,7 @@
             Add new record to your collection of records by <%= artist.name %>
           </h1>
         </div>
+        <%- include('errors') %>
         <form
           action="/artists/<%= locals.artist.artist_id %>/new"
           method="post"

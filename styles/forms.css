@@ -79,3 +79,17 @@ input {
 form button {
   padding: 1rem;
 }
+
+#errors {
+  align-self: center;
+  background-color: #ff7e6b;
+
+  padding: 2rem;
+
+  margin-top: 2rem;
+}
+
+#errors li {
+  list-style-type: circle;
+  color: #fffcf2;
+}

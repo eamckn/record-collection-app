@@ -17,6 +17,7 @@
         <div class="content-header">
           <h1>Update info for <%= record.title %></h1>
         </div>
+        <%- include('errors') %>
         <div class="update-content">
           <div class="img-wrapper sqaure">
             <img src="<%= record.art %>" alt="" />
@@ -28,53 +29,53 @@
             class="record-form"
           >
             <div id="update-record-title" class="form-row record-title">
-              <label for="update_title">Record title: </label>
+              <label for="record_title">Record title: </label>
               <input
                 type="text"
-                name="update_title"
-                id="update_title"
+                name="record_title"
+                id="record_title"
                 value="<%= locals.record.title %>"
               />
             </div>
             <div id="update-record-year" class="form-row update-year">
-              <label for="update_release_year">Release year: </label>
+              <label for="record_year">Release year: </label>
               <input
                 type="text"
-                name="update_release_year"
-                id="update_release_year"
+                name="record_year"
+                id="record_year"
                 value="<%= locals.record.yr %>"
               />
             </div>
             <div id="update-record-label" class="form-row update-label">
-              <label for="update_label">Label: </label>
+              <label for="record_label">Label: </label>
               <input
                 type="text"
-                name="update_label"
-                id="update_label"
+                name="record_label"
+                id="record_label"
                 value="<%= locals.record.label %>"
               />
             </div>
             <div id="update-record-genre" class="form-row update-genre">
-              <label for="update_genre">Genre: </label>
+              <label for="record_genre">Genre: </label>
               <input
                 type="text"
-                name="update_genre"
-                id="update_genre"
+                name="record_genre"
+                id="record_genre"
                 value="<%= locals.record.genre %>"
               />
             </div>
             <div id="update-record-art" class="form-row update-art">
-              <label for="update_art">URL for album art: </label>
+              <label for="record_art">URL for album art: </label>
               <input
                 type="text"
-                name="update_art"
-                id="update_art"
+                name="record_art"
+                id="record_art"
                 value="<%= locals.record.art %>"
               />
             </div>
             <button
               type="submit"
-              name="update_id"
+              name="record_id"
               value="<%= locals.record.id %>"
               class="submit"
             >
