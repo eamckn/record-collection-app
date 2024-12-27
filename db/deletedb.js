@@ -2,9 +2,9 @@ const { Client } = require("pg");
 require("dotenv").config();
 
 const SQL = `
-DROP TABLE records;
+DROP TABLE IF EXISTS records;
 
-DROP TABLE artists;
+DROP TABLE IF EXISTS artists;
 `;
 
 async function main() {
