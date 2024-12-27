@@ -8,6 +8,8 @@
 
 .update-content div.img-wrapper {
   overflow: hidden;
+
+  box-shadow: -4px 4px 8px black;
 }
 
 .img-wrapper.square {
@@ -23,8 +25,8 @@
 }
 
 .update-content img {
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  height: 100%;
 }
 
 form.record-form,

@@ -6,11 +6,15 @@
   padding: 2rem;
   border: 1px solid black;
   margin: 4rem auto;
+
+  background-color: #fffcf2;
 }
 
 img.record-art {
   width: 200px;
   height: auto;
+
+  box-shadow: -4px 4px 8px black;
 }
 
 #details {

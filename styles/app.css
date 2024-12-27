@@ -53,6 +53,7 @@ div.content {
   padding: 1rem;
   background-color: #293344;
   border: 0.5rem solid #eb5e28;
+  box-shadow: -4px 4px 8px black;
 
   border-radius: 10%;
 }
