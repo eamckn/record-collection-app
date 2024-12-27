@@ -24,6 +24,10 @@
   color: #fffcf2;
 }
 
+#sidebar-top svg:hover {
+  color: #48a9a6;
+}
+
 #sidebar-top button {
   width: 2rem;
   height: 2rem;
@@ -34,6 +38,12 @@
   border: none;
   background-color: #fffcf2;
   color: #293344;
+}
+
+#sidebar-top button:hover {
+  background-color: #48a9a6;
+  color: #fffcf2;
+  border: 1px solid #fffcf2;
 }
 
 nav {
